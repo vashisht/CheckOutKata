@@ -31,15 +31,15 @@ namespace Kata.ShoppingCart.Unit.Tests
             discounter.Verify(v => v.DiscountFor(item));
         }
 
-        [Test]
-        public void GettingTotalWithDiscountAppliesDiscount()
-        {
-            var discounter = new Mock<IDiscounter>();
-            discounter.Setup(v => v.DiscountFor(It.IsAny<string>())).Returns(20);
-            var checkout = new Checkout(discounter.Object, new Mock<IPriceFinder>().Object);
-            checkout.Scan("a");
-            Assert.That(checkout.Total(), Is.EqualTo(-20));
-        }
+        //[Test]
+        //public void GettingTotalWithDiscountAppliesDiscount()
+        //{
+        //    var discounter = new Mock<IDiscounter>();
+        //    discounter.Setup(v => v.DiscountFor(It.IsAny<string>())).Returns(20);
+        //    var checkout = new Checkout(discounter.Object, new Mock<IPriceFinder>().Object);
+        //    checkout.Scan("a");
+        //    Assert.That(checkout.Total(), Is.EqualTo(-20));
+        //}
 
         [Test]
         public void ScanningMultipleItemsGetsDiscountForEachOne()
@@ -49,5 +49,6 @@ namespace Kata.ShoppingCart.Unit.Tests
             new Checkout(discounter.Object, new Mock<IPriceFinder>().Object).Scan(item);
             discounter.Verify(v => v.DiscountFor(It.IsAny<string>()), Times.Exactly(item.Length));
         }
+        
     }
 }

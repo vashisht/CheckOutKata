@@ -48,13 +48,13 @@ namespace Kata.ShoppingCart.Unit.Tests
             
         }
 
-        [Test]
-        public void ShouldReturnCorrectCorrectTotalForItemA()
-        {
-            var checkOut = new Checkout(new Discounter(), new PriceFinder());
-            checkOut.Scan("A");
-            Assert.AreEqual(checkOut.Total(), 80);
-        }
+        //[Test]
+        //public void ShouldReturnCorrectCorrectTotalForItemA()
+        //{
+        //    var checkOut = new Checkout(new Discounter(), new PriceFinder());
+        //    checkOut.Scan("A");
+        //    Assert.AreEqual(checkOut.Total(), 80);
+        //}
 
         
         
